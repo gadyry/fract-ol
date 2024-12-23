@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:20:03 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/23 00:15:35 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/23 05:55:45 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 
 # define HEIGHT	900
 # define WIDTH	900
+# define MAX_ITER 150
 
 /*------ struct : ------*/
 typedef struct s_complex_nbr
@@ -54,7 +55,11 @@ typedef struct s_my_fractol
 	t_data_img		img;
 	t_complex_nbr	z;
 	t_complex_nbr	c_mendel;
-	t_complex_nbr	c_julia;	
+	t_complex_nbr	c_julia;
+	double			x_start;
+	double			x_end;
+	double			y_start;
+	double			y_fin;
 }				t_my_fractol;
 
 typedef struct s_vars
@@ -95,6 +100,9 @@ t_complex_nbr	calculate_poly_function(t_complex_nbr z);
 void    		preparing_fractol(t_my_fractol *fractol);
 void			create_fractol(t_my_fractol *fractol);
 void			deal_with_error(const char *msg, t_my_fractol *f);
-void			handele_data_pixel(t_my_fractol *fractol, int x, int y);
+void			handle_data_pixel(t_my_fractol *fractol, int x, int y);
+double			map_pixel_to_coordinate(int pxl_x, int win_width, double range_start, double range_end);
+t_complex_nbr	sum_complex(t_complex_nbr z, t_complex_nbr c);
+t_complex_nbr	pow2_complex(t_complex_nbr z);
 double			ft_atof(char *arg);
 #endif
