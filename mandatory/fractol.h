@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:20:03 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/23 05:55:45 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/25 10:21:22 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define HEIGHT	900
 # define WIDTH	900
 # define MAX_ITER 150
+# define BLACK_COLOR 0X000000
 
 /*------ struct : ------*/
 typedef struct s_complex_nbr
@@ -59,7 +60,7 @@ typedef struct s_my_fractol
 	double			x_start;
 	double			x_end;
 	double			y_start;
-	double			y_fin;
+	double			y_end;
 }				t_my_fractol;
 
 typedef struct s_vars
@@ -104,5 +105,10 @@ void			handle_data_pixel(t_my_fractol *fractol, int x, int y);
 double			map_pixel_to_coordinate(int pxl_x, int win_width, double range_start, double range_end);
 t_complex_nbr	sum_complex(t_complex_nbr z, t_complex_nbr c);
 t_complex_nbr	pow2_complex(t_complex_nbr z);
+void			handle_data_pixel(t_my_fractol *f, int x, int y);
+void			put_color(t_my_fractol *f, int x, int y, int nbr_iter);
+void			put_postition_pixel(t_my_fractol *f, int x, int y, int color);
+void			setup_zoom(t_my_fractol *f);
+void			managing_events(t_my_fractol *f);
 double			ft_atof(char *arg);
 #endif

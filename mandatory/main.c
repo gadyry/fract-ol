@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:19:46 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/23 01:47:13 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/24 18:41:58 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int main (int ac, char *av[])
 		fractol.name = "mandelbrot";
 		preparing_fractol(&fractol);
 		create_fractol(&fractol);
+		managing_events(&fractol);
 	}
 	else if (ac == 4 && !ft_strcmp(av[1], "julia"))
 	{

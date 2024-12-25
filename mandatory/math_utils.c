@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:27:21 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/23 05:53:53 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/25 10:20:35 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 double	map_pixel_to_coordinate(int pxl_x, int win_width, double range_start, double range_end)
 {
-    return (range_start + (pxl_x * (range_end - range_start) / win_width));
+	return (range_start + (pxl_x * (range_end - range_start) / win_width));
 }
 
 t_complex_nbr	sum_complex(t_complex_nbr z, t_complex_nbr c)
@@ -37,6 +37,13 @@ t_complex_nbr  pow2_complex(t_complex_nbr z)
 	z.img = 2 * z.real * z.img;
 	z.real = tmp;
 	return (z);
+}
+void	setup_zoom(t_my_fractol *frc)
+{
+	frc->x_start *= frc->zoom;
+	frc->x_end *= frc->zoom;
+	frc->y_start*= frc->zoom;
+	frc->y_end *= frc->zoom;
 }
 
 double  ft_atof(char *arg)
