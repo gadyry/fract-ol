@@ -6,11 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 23:05:33 by ael-gady          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/12/25 12:21:08 by ael-gady         ###   ########.fr       */
-=======
-/*   Updated: 2024/12/24 14:44:18 by ael-gady         ###   ########.fr       */
->>>>>>> 59e04e8c18d554afd25cc9003d1f95dd03e755b9
+/*   Updated: 2024/12/26 09:51:53 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +23,7 @@ void	put_color(t_my_fractol *f, int x, int y, int nbr_iter)
 		f->img.color = 0x000000;// BLACK
 	else
 		f->img.color = nbr_iter * 10000 * \
-			colors[iter % (sizeof(colors) / sizeof(colors[0]))];
+			colors[nbr_iter % (sizeof(colors) / sizeof(colors[0]))];
 	put_postition_pixel(f, x, y, f->img.color);
 }
 
@@ -35,29 +31,18 @@ void	put_postition_pixel(t_my_fractol *f, int x, int y, int color)
 {
 	char	*pixel_address;
 
-<<<<<<< HEAD
 	if (!f || !f->img.pixel_data)
 	{
 		perror("Invalid fractol or invalid image data address\n");
 		exit(1);
-=======
-		if (!f || !f->img.pixel_data)
-	{
-		perror("Invalid fractol or invalid image data address\n");
-		exit(0);
->>>>>>> 59e04e8c18d554afd25cc9003d1f95dd03e755b9
 	}
 	if (pixel_address > WIDTH * HEIGHT * (frc->img.bit_p_pxl / 8))
 	{
 		perror("Invalid image offset\n");
 		exit(1);
 	}
-<<<<<<< HEAD
 	pixel_address = (y * f->img.line_length) + (x * (f->img.bits_per_pixel / 8));
 	*(unsigned int *)(pixel_address + f->img.pixel_data) = color;
-=======
-	*(int *)pixel_address = (y * f->img.line_length) + (x * (f->img.bits_per_pixel / 8));
->>>>>>> 59e04e8c18d554afd25cc9003d1f95dd03e755b9
 }
 
 void	handle_data_pixel(t_my_fractol *f, int x, int y)
@@ -73,33 +58,23 @@ void	handle_data_pixel(t_my_fractol *f, int x, int y)
 	while (f->nbr_iter < MAX_ITER)
 	{
 		z = sum_complex(pow2_complex(z). c);
-		if ((z.real * z.real) + (z.im * z.img) > 4 )
+		if ((z.real * z.real) + (z.im * z.img) > 4)
 		{
-<<<<<<< HEAD
 			put_color(f, x, y, f->nbr_iter);
-=======
-			put_color(f, x, y, f->nbr_iter);//TODO
->>>>>>> 59e04e8c18d554afd25cc9003d1f95dd03e755b9
 			return ;
 		}
 		f->nbr_iter++;
 	}
-<<<<<<< HEAD
 	put_postition_pixel(f, x, y, BLACK_COLOR);
-=======
->>>>>>> 59e04e8c18d554afd25cc9003d1f95dd03e755b9
 }
 
-void	create_fractol(t_my_fractol *f)
+void	create_frac_mandelbrot(t_my_fractol *f)
 {
 	int x;
 	int y;
 	
 	y = -1;
-<<<<<<< HEAD
 	setup_zoom(f);
-=======
->>>>>>> 59e04e8c18d554afd25cc9003d1f95dd03e755b9
 	while (++y < WIDTH)
 	{
 		x = -1;

@@ -6,11 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:19:46 by ael-gady          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/12/24 18:41:58 by ael-gady         ###   ########.fr       */
-=======
-/*   Updated: 2024/12/23 01:47:13 by ael-gady         ###   ########.fr       */
->>>>>>> 59e04e8c18d554afd25cc9003d1f95dd03e755b9
+/*   Updated: 2024/12/26 10:45:39 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +31,14 @@ void preparing_fractol(t_my_fractol *fr)
 	if (fr->img.addr == NULL)
 		deal_with_error("Problem accessing image data!\n", fr);
 }
+int	create_fractol(t_my_fractol *f, char *str)
+{
+	if (!ft_strcmp(str, "mandelbrot"))
+		create_fract_mandelbrot(f);
+	else if (!ft_strcmp(str, "julia"))
+		create_fract_julia(f);
+	managing_events(f);
+}
 
 int main (int ac, char *av[])
 {
@@ -44,8 +48,9 @@ int main (int ac, char *av[])
 
 		fractol.name = "mandelbrot";
 		preparing_fractol(&fractol);
-		create_fractol(&fractol);
+		create_fractol(&fractol, fractol.name);
 		managing_events(&fractol);
+		mlx_loop(fractol.mlx_ptr);
 	}
 	else if (ac == 4 && !ft_strcmp(av[1], "julia"))
 	{
@@ -55,9 +60,12 @@ int main (int ac, char *av[])
 		// fractol.c_julia.real = ft_atof(av[2]);
 		// fractol.c_julia.img = ft_atof(av[3]);
 		preparing_fractol(&fractol);
+		create_fractol(&fractol, fractol.name);
+		managing_events(&fractol);
+		mlx_loop(fractol.mlx_ptr);
 	}
 	else
-	{
 		ft_put_error(ERROR_0 ERROR_1 ERROR_2, 2);
-	}
+	return (0);
 }
+

@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 18:43:55 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/25 13:20:00 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/26 10:22:47 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,13 @@ static int _zoom(int button, int x, int y, t_my_fractol *f)
 	{
 		f->zoom = 1.1;
 		// function_check_(mandel/julia)
+		create_frac_mandelbrot(f);
 	}
 	else if (button == 5)
 	{
 		f->zoom = 0.9;
 		// function_check_(mandel/julia)
+		create_frac_julia(f);
 	}
 }
 
