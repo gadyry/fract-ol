@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   julia_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/22 23:05:33 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/27 19:14:59 by ael-gady         ###   ########.fr       */
+/*   Created: 2024/12/27 20:41:45 by ael-gady          #+#    #+#             */
+/*   Updated: 2024/12/27 20:44:02 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonnus.h"
 
-void	handle_data_pixel_mand(t_my_fractol *f, int x, int y)
+void	handle_data_pixel_julia(t_my_fractol *f, int x, int y)
 {
 	t_complex_nbr	z;
-	t_complex_nbr	c;
 
-	z.real = 0.0;
-	z.img = 0.0;
+	z.real = map_pixel_to_coordinate(x, -2, +2, WIDTH);
+	z.img = map_pixel_to_coordinate(y, +2, -2, HEIGHT);
 	f->nbr_iter = 0;
-	c.real = map_pixel_to_coordinate(x, -2, +2, WIDTH);
-	c.img = map_pixel_to_coordinate(y, +2, -2, HEIGHT);
 	while (f->nbr_iter < MAX_ITER)
 	{
-		z = sum_complex(pow2_complex(z), c);
+		z = sum_complex(pow2_complex(z), f->c_julia);
 		if ((z.real * z.real) + (z.img * z.img) > 4)
 		{
 			put_color(f, x, y, f->nbr_iter);
@@ -35,7 +32,7 @@ void	handle_data_pixel_mand(t_my_fractol *f, int x, int y)
 	put_postition_pixel(f, x, y, BLACK_COLOR);
 }
 
-void	create_fract_mandelbrot(t_my_fractol *f)
+void	create_fract_julia(t_my_fractol *f)
 {
 	int x;
 	int y;
@@ -47,7 +44,7 @@ void	create_fract_mandelbrot(t_my_fractol *f)
 		x = 0;
 		while (x < HEIGHT)
 		{
-			handle_data_pixel_mand(f, x, y);
+			handle_data_pixel_julia(f, x, y);
 			x++;
 		}
 		y++;

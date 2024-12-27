@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/27 08:13:57 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/27 20:41:02 by ael-gady         ###   ########.fr       */
+/*   Created: 2024/12/27 20:40:31 by ael-gady          #+#    #+#             */
+/*   Updated: 2024/12/27 20:40:53 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 void	put_color(t_my_fractol *f, int x, int y, int nbr_iter)
 {

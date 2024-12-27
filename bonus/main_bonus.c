@@ -1,52 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 10:19:46 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/27 20:34:24 by ael-gady         ###   ########.fr       */
+/*   Created: 2024/12/27 20:10:31 by ael-gady          #+#    #+#             */
+/*   Updated: 2024/12/27 20:41:41 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
-static void	init_var(int *pt, int *s, int *n_d, int *d)
+void	create_fractol(t_my_fractol *f, char *str)
 {
-	*pt = 0;
-	*s = 0;
-	*n_d = 0;
-	*d = 0;
-}
-
-int	ft_check_arg(char *arg)// check ".5" - "++5"
-{
-	int	i;
-	int	pt;
-	int	sign;
-	int	non_digit;
-	int	digit;
-
-	i = -1;
-	init_var(&pt, &sign, &non_digit, &digit);
-	while (arg[++i])
-	{
-		if ((arg[i] == '+' || arg[i] == '-') && i != 0)
-			return (0);
-		if (arg[i] == '+' || arg[i] == '-')
-			sign++;
-		else if (arg[i] == '.')
-			pt++;
-		else if (arg[i] < '0' || arg[i] > '9')
-			non_digit++;
-		else
-			digit++;
-	}
-	if (arg[i - 1] == '.' || pt > 1 || sign > 1 || \
-		non_digit > 0 || digit < 1)
-		return (0);
-	return (1);
+	if (!ft_strcmp(str, "mandelbrot"))
+		create_fract_mandelbrot(f);
+	else if (!ft_strcmp(str, "julia"))
+		create_fract_julia(f);
+	else
+		create_fract_tricorn(f);
+	managing_events(f);
 }
 
 void	preparing_fractol(t_my_fractol *fr)
@@ -70,22 +44,14 @@ void	preparing_fractol(t_my_fractol *fr)
 	set_plan(fr);
 }
 
-void	create_fractol(t_my_fractol *f, char *str)
-{
-	if (!ft_strcmp(str, "mandelbrot"))
-		create_fract_mandelbrot(f);
-	else if (!ft_strcmp(str, "julia"))
-		create_fract_julia(f);
-	managing_events(f);
-}
-
 int	main(int ac, char *av[])
 {
 	t_my_fractol	fractol;
 
-	if (ac == 2 && (!ft_strcmp(av[1], "mandelbrot")))
+	if (ac == 2 && (!ft_strcmp(av[1], "mandelbrot") \
+		|| !ft_strcmp(av[1], "tricorn")))
 	{
-		fractol.name = "mandelbrot";
+		fractol.name = av[1];
 		preparing_fractol(&fractol);
 		create_fractol(&fractol, fractol.name);
 		managing_events(&fractol);

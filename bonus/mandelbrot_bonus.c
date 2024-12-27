@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   mandelbrot_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/22 23:05:33 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/27 19:14:59 by ael-gady         ###   ########.fr       */
+/*   Created: 2024/12/27 20:39:16 by ael-gady          #+#    #+#             */
+/*   Updated: 2024/12/27 20:39:37 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 void	handle_data_pixel_mand(t_my_fractol *f, int x, int y)
 {
