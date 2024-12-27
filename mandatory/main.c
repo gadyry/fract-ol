@@ -6,11 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:19:46 by ael-gady          #+#    #+#             */
-<<<<<<< HEAD
 /*   Updated: 2024/12/27 11:59:41 by ael-gady         ###   ########.fr       */
-=======
-/*   Updated: 2024/12/26 10:45:39 by ael-gady         ###   ########.fr       */
->>>>>>> 28e808c73588d3f6856c587ec8cc93573fa3e511
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +68,6 @@ void	preparing_fractol(t_my_fractol *fr)
 	if (fr->img.pixel_data == NULL)
 		deal_with_error("Problem accessing image data!\n", fr);
 }
-int	create_fractol(t_my_fractol *f, char *str)
-{
-	if (!ft_strcmp(str, "mandelbrot"))
-		create_fract_mandelbrot(f);
-	else if (!ft_strcmp(str, "julia"))
-		create_fract_julia(f);
-	managing_events(f);
-}
 
 int	create_fractol(t_my_fractol *f, char *str)
 {
@@ -117,7 +105,3 @@ int	main(int ac, char *av[])
 		ft_put_error(ERROR_0 ERROR_1 ERROR_2, 2);
 	return (0);
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 28e808c73588d3f6856c587ec8cc93573fa3e511

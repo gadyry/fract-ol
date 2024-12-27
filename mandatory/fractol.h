@@ -6,11 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:20:03 by ael-gady          #+#    #+#             */
-<<<<<<< HEAD
 /*   Updated: 2024/12/27 08:28:09 by ael-gady         ###   ########.fr       */
-=======
-/*   Updated: 2024/12/26 10:44:54 by ael-gady         ###   ########.fr       */
->>>>>>> 28e808c73588d3f6856c587ec8cc93573fa3e511
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +92,5 @@ void			put_color(t_my_fractol *f, int x, int y, int nbr_iter);
 void			put_postition_pixel(t_my_fractol *f, int x, int y, int color);
 void			setup_zoom(t_my_fractol *f);
 void			managing_events(t_my_fractol *f);
-<<<<<<< HEAD
 double			ft_atod(char *arg);
-=======
-double			ft_atof(char *arg);
->>>>>>> 28e808c73588d3f6856c587ec8cc93573fa3e511
 #endif

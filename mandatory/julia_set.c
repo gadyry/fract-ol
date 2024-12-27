@@ -6,17 +6,12 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 09:21:48 by ael-gady          #+#    #+#             */
-<<<<<<< HEAD
 /*   Updated: 2024/12/26 20:10:18 by ael-gady         ###   ########.fr       */
-=======
-/*   Updated: 2024/12/26 09:22:26 by ael-gady         ###   ########.fr       */
->>>>>>> 28e808c73588d3f6856c587ec8cc93573fa3e511
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-<<<<<<< HEAD
 
 
 void	handle_data_pixel_julia(t_my_fractol *f, int x, int y)
@@ -58,5 +53,3 @@ void	create_fract_julia(t_my_fractol *f)
 	}
 	mlx_put_image_to_window(f->mlx_ptr, f->mlx_win, f->img.img_ptr, 0, 0);
 }
-=======
->>>>>>> 28e808c73588d3f6856c587ec8cc93573fa3e511
