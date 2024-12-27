@@ -6,20 +6,18 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 09:21:48 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/26 20:10:18 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/27 16:41:16 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-
-
 void	handle_data_pixel_julia(t_my_fractol *f, int x, int y)
 {
 	t_complex_nbr	z;
 
-	z.real = map_pixel_to_coordinate(x, WIDTH, f->x_start, f->x_end);
-	z.img = map_pixel_to_coordinate(y, HEIGHT, f->x_start, f->x_end);
+	z.real = map_pixel_to_coordinate(x, -2, +2, WIDTH);
+	z.img = map_pixel_to_coordinate(y, +2, -2, HEIGHT);
 	f->nbr_iter = 0;
 	while (f->nbr_iter < MAX_ITER)
 	{

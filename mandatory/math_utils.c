@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:27:21 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/27 09:09:38 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/27 16:38:08 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,18 @@
 /*
 * calcule z^2 + c  { {z,c} appartient a C et {a,b} appartient a R | z = a + ib }
 */
-
-double	map_pixel_to_coordinate(int pxl_x, int win_width, double range_start, double range_end)
+void	set_plan(t_my_fractol *fract)
 {
-	return (range_start + (pxl_x * (range_end - range_start) / win_width));
+	fract->zoom = 1;
+	fract->x_start = -2.0;
+	fract->x_end = 2.0;
+	fract->y_start = 2.0;
+	fract->y_end = -2.0;
+}
+
+double	map_pixel_to_coordinate(double value, double nmin, double nmax, double omax)
+{
+	return ((value / omax ) * (nmax - nmin) + nmin);
 }
 
 t_complex_nbr	sum_complex(t_complex_nbr z, t_complex_nbr c)
@@ -32,7 +40,7 @@ t_complex_nbr	sum_complex(t_complex_nbr z, t_complex_nbr c)
 t_complex_nbr  pow2_complex(t_complex_nbr z)
 {
 	double tmp;
-	
+
 	tmp = (z.real * z.real) - (z.img * z.img);
 	z.img = 2 * z.real * z.img;
 	z.real = tmp;
@@ -42,7 +50,7 @@ void	setup_zoom(t_my_fractol *frc)
 {
 	frc->x_start *= frc->zoom;
 	frc->x_end *= frc->zoom;
-	frc->y_start*= frc->zoom;
+	frc->y_start *= frc->zoom;
 	frc->y_end *= frc->zoom;
 }
 

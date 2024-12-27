@@ -6,13 +6,13 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:19:46 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/27 11:59:41 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/27 16:50:31 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	init_var(int *pt, int *s, int n_d, int *d)
+static void	init_var(int *pt, int *s, int *n_d, int *d)
 {
 	*pt = 0;
 	*s = 0;
@@ -67,9 +67,10 @@ void	preparing_fractol(t_my_fractol *fr)
 	&fr->img.bits_per_pixel, &fr->img.line_length, &fr->img.endian);
 	if (fr->img.pixel_data == NULL)
 		deal_with_error("Problem accessing image data!\n", fr);
+	set_plan(fr);
 }
 
-int	create_fractol(t_my_fractol *f, char *str)
+void	create_fractol(t_my_fractol *f, char *str)
 {
 	if (!ft_strcmp(str, "mandelbrot"))
 		create_fract_mandelbrot(f);

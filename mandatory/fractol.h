@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:20:03 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/27 08:28:09 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/27 16:37:33 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 # define HEIGHT	900
 # define WIDTH	900
-# define MAX_ITER 150
+# define MAX_ITER 100
 # define BLACK_COLOR 0X000000
 
 /*------ struct : ------*/
@@ -81,16 +81,17 @@ void    		preparing_fractol(t_my_fractol *fractol);
 void			create_fractol(t_my_fractol *fractol, char *str);
 void			create_fract_mandelbrot(t_my_fractol *f);
 void			create_fract_julia(t_my_fractol *f);
-void			deal_with_error(const char *msg, t_my_fractol *f);
+void			deal_with_error(char *msg, t_my_fractol *f);
 void			handle_data_pixel_mand(t_my_fractol *f, int x, int y);
 void			handle_data_pixel_julia(t_my_fractol *f, int x, int y);
-double			map_pixel_to_coordinate(int pxl_x, int win_width, double range_start, double range_end);
+double			map_pixel_to_coordinate(double value, double nmin, double nmax, double omax);
 t_complex_nbr	sum_complex(t_complex_nbr z, t_complex_nbr c);
 t_complex_nbr	pow2_complex(t_complex_nbr z);
 void			handle_data_pixel(t_my_fractol *f, int x, int y);
 void			put_color(t_my_fractol *f, int x, int y, int nbr_iter);
 void			put_postition_pixel(t_my_fractol *f, int x, int y, int color);
 void			setup_zoom(t_my_fractol *f);
+void			set_plan(t_my_fractol *fract);
 void			managing_events(t_my_fractol *f);
 double			ft_atod(char *arg);
 #endif

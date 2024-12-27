@@ -6,13 +6,13 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 00:08:18 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/23 06:16:44 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/27 13:52:48 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void deal_with_error(const char *msg, t_my_fractol *f)
+void deal_with_error(char *msg, t_my_fractol *f)
 {
 	if (f->img.img_ptr)
 		mlx_destroy_image(f->mlx_ptr, f->img.img_ptr);
