@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 23:05:33 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/27 16:22:37 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/27 18:16:54 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	create_fract_mandelbrot(t_my_fractol *f)
 {
 	int x;
 	int y;
-	
+
 	y = 0;
 	setup_zoom(f);
 	while (y < WIDTH)

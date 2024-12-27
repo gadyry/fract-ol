@@ -6,15 +6,12 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:27:21 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/27 16:38:08 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/27 18:43:09 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-/*
-* calcule z^2 + c  { {z,c} appartient a C et {a,b} appartient a R | z = a + ib }
-*/
 void	set_plan(t_my_fractol *fract)
 {
 	fract->zoom = 1;
@@ -46,12 +43,12 @@ t_complex_nbr  pow2_complex(t_complex_nbr z)
 	z.real = tmp;
 	return (z);
 }
-void	setup_zoom(t_my_fractol *frc)
+void	setup_zoom(t_my_fractol *f)
 {
-	frc->x_start *= frc->zoom;
-	frc->x_end *= frc->zoom;
-	frc->y_start *= frc->zoom;
-	frc->y_end *= frc->zoom;
+	f->x_start *= f->zoom;
+	f->x_end *= f->zoom;
+	f->y_start *= f->zoom;
+	f->y_end *= f->zoom;
 }
 
 double  ft_atod(char *arg)

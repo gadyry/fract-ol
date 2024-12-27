@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 08:13:57 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/27 16:14:23 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/27 17:00:20 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,17 @@ void	put_postition_pixel(t_my_fractol *f, int x, int y, int color)
 {
 	int	pixel_address;
 
-	// if (!f || !f->img.pixel_data)
-	// {
-	// 	perror("Invalid fractol or invalid image data address\n");
-	// 	exit(1);
-	// }
-	// if (pixel_address > WIDTH * HEIGHT * (frc->img.bit_p_pxl / 8))
-	// {
-	// 	perror("Invalid image offset\n");
-	// 	exit(1);
-	// }
+	pixel_address = 0;
+	if (!f || !f->img.pixel_data)
+	{
+		perror("Invalid fractol or invalid image data address\n");
+		exit(1);
+	}
+	if (pixel_address > WIDTH * HEIGHT * (f->img.bits_per_pixel / 8))
+	{
+		perror("Invalid image offset\n");
+		exit(1);
+	}
 	pixel_address = (y * f->img.line_length) + (x * (f->img.bits_per_pixel / 8));
 	*(unsigned int *)(pixel_address + f->img.pixel_data) = color;
 }

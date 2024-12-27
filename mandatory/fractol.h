@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:20:03 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/27 16:37:33 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/27 18:45:45 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,6 @@ typedef struct s_my_fractol
 	double			y_end;
 }				t_my_fractol;
 
-/*
-typedef struct s_vars
-{
-	int		i;
-	int		j;
-	double	x;
-	double	y;
-}			t_vars;
-*/
 
 /*  ****----functions----****    */
 int				ft_strcmp(const char *s1, const char *s2);
