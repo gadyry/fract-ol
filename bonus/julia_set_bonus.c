@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   julia_bonus.c                                      :+:      :+:    :+:   */
+/*   julia_set_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:41:45 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/27 20:44:02 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/28 16:07:34 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_bonnus.h"
+#include "fractol_bonus.h"
 
 void	handle_data_pixel_julia(t_my_fractol *f, int x, int y)
 {
 	t_complex_nbr	z;
 
-	z.real = map_pixel_to_coordinate(x, -2, +2, WIDTH);
-	z.img = map_pixel_to_coordinate(y, +2, -2, HEIGHT);
+	z.real = map_pixel_to_coordinate(x, f->x_start, f->x_end, WIDTH);
+	z.img = map_pixel_to_coordinate(y, f->y_start, f->y_end, HEIGHT);
 	f->nbr_iter = 0;
 	while (f->nbr_iter < MAX_ITER)
 	{
@@ -38,7 +38,7 @@ void	create_fract_julia(t_my_fractol *f)
 	int y;
 
 	y = 0;
-	setup_zoom(f);
+	set_up_zoom(f);
 	while (y < WIDTH)
 	{
 		x = 0;

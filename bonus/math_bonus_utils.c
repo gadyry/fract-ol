@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:44:55 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/27 20:45:43 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/28 17:14:08 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,17 @@ t_complex_nbr  pow2_complex(t_complex_nbr z)
 	z.real = tmp;
 	return (z);
 }
-void	setup_zoom(t_my_fractol *f)
+void	set_up_zoom(t_my_fractol *f)  // I have a problem in this function !!
 {
-	f->x_start *= f->zoom;
-	f->x_end *= f->zoom;
-	f->y_start *= f->zoom;
-	f->y_end *= f->zoom;
+	double	width;
+	double	height;
+
+	width = (f->x_end - f->x_start) * f->zoom;
+	height = (f->y_end - f->y_start) * f->zoom;
+	f->x_start = -width / 2 + f->mouse_x;
+	f->x_end = width / 2 + f->mouse_x;
+	f->y_start = -height / 2 + f->mouse_y;
+	f->y_end = height / 2 + f->mouse_y;
 }
 
 double  ft_atod(char *arg)

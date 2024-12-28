@@ -6,12 +6,12 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:11:09 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/27 20:36:57 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/28 16:04:20 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_BONUS_H
-# define FFRACTOL_BONUS_H
+# define FRACTOL_BONUS_H
 
 # include <mlx.h>
 # include <math.h> // for mathematic functions
@@ -60,8 +60,11 @@ typedef struct s_my_fractol
 	double			x_end;
 	double			y_start;
 	double			y_end;
+	double			move_x;
+	double			move_y;
+	double			mouse_x;
+	double			mouse_y;
 }				t_my_fractol;
-
 
 /*  ****----functions----****    */
 int				ft_strcmp(const char *s1, const char *s2);
@@ -82,8 +85,9 @@ t_complex_nbr	pow2_complex(t_complex_nbr z);
 void			handle_data_pixel(t_my_fractol *f, int x, int y);
 void			put_color(t_my_fractol *f, int x, int y, int nbr_iter);
 void			put_postition_pixel(t_my_fractol *f, int x, int y, int color);
-void			setup_zoom(t_my_fractol *f);
+void			set_up_zoom(t_my_fractol *f);
 void			set_plan(t_my_fractol *fract);
 void			managing_events(t_my_fractol *f);
 double			ft_atod(char *arg);
+
 #endif
