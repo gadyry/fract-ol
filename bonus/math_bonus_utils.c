@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:44:55 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/28 17:14:08 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/28 18:33:50 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,19 @@ t_complex_nbr  pow2_complex(t_complex_nbr z)
 	z.real = tmp;
 	return (z);
 }
-void	set_up_zoom(t_my_fractol *f)  // I have a problem in this function !!
+void	set_up_zoom(t_my_fractol *f, int x, int y)  // I have a problem in this function !!
 {
-	double	width;
-	double	height;
+	double	mouse_real;
+	double	mouse_img;
+	// double	zoom;
 
-	width = (f->x_end - f->x_start) * f->zoom;
-	height = (f->y_end - f->y_start) * f->zoom;
-	f->x_start = -width / 2 + f->mouse_x;
-	f->x_end = width / 2 + f->mouse_x;
-	f->y_start = -height / 2 + f->mouse_y;
-	f->y_end = height / 2 + f->mouse_y;
+	// f->zoom *= zoom;
+	mouse_real = map_pixel_to_coordinate(x, f->x_start, f->x_end, WIDTH);
+	mouse_img = map_pixel_to_coordinate(y, f->y_start, f->y_end, HEIGHT);
+	f->x_start = mouse_real + (f->x_start - mouse_real) * f->zoom;
+	f->x_end = mouse_real + (f->x_end - mouse_real) * f->zoom;
+	f->y_start = mouse_img + (f->x_start - mouse_img) * f->zoom;
+	f->y_end = mouse_img + (f->x_end - mouse_img) * f->zoom;
 }
 
 double  ft_atod(char *arg)

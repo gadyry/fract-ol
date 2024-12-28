@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:47:29 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/28 17:39:05 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/28 18:40:58 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,21 @@ static int _zoom(int button, int x, int y, t_my_fractol *f)
 {
 	double	mouse_real;
 	double	mouse_img;
+	double	zoom;
 
 	if (button == 4)
-		f->zoom = 1.05;
+		zoom = 1.05;
 	else if (button == 5)
-		f->zoom = 0.95;
+		zoom = 0.95;
 	else
 		return (0);
+	f->zoom *= zoom;
 	mouse_real = map_pixel_to_coordinate(x, f->x_start, f->x_end, WIDTH);
 	mouse_img = map_pixel_to_coordinate(y, f->y_start, f->y_end, HEIGHT);
-	f->x_start = mouse_real + (f->x_start - mouse_real) * f->zoom;
-	f->x_end = mouse_real + (f->x_end - mouse_real) * f->zoom;
-	f->y_start = mouse_img + (f->x_start - mouse_img) * f->zoom;
-	f->y_end = mouse_img + (f->x_end - mouse_img) * f->zoom;
+	f->x_start = mouse_real + (f->x_start - mouse_real) * zoom;
+	f->x_end = mouse_real + (f->x_end - mouse_real) * zoom;
+	f->y_start = mouse_img + (f->x_start - mouse_img) * zoom;
+	f->y_end = mouse_img + (f->x_end - mouse_img) * zoom;
 	create_fractol(f, f->name);
 	return (0);
 }

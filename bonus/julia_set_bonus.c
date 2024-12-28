@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:41:45 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/28 16:07:34 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/28 17:56:31 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	create_fract_julia(t_my_fractol *f)
 	int y;
 
 	y = 0;
-	set_up_zoom(f);
 	while (y < WIDTH)
 	{
 		x = 0;

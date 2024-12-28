@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:11:09 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/28 16:04:20 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/28 18:44:00 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ t_complex_nbr	pow2_complex(t_complex_nbr z);
 void			handle_data_pixel(t_my_fractol *f, int x, int y);
 void			put_color(t_my_fractol *f, int x, int y, int nbr_iter);
 void			put_postition_pixel(t_my_fractol *f, int x, int y, int color);
-void			set_up_zoom(t_my_fractol *f);
+// void			set_up_zoom(t_my_fractol *f, int x, int y);
 void			set_plan(t_my_fractol *fract);
 void			managing_events(t_my_fractol *f);
 double			ft_atod(char *arg);
