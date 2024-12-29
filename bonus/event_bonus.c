@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:47:29 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/29 09:42:34 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/29 09:57:51 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ static int _close(t_my_fractol *f)
 
 static int	_event(int keycode, t_my_fractol *f)
 {
-	// double	move_step;
-
-	// move_step = (f->x_end - f->x_start) * 0.5;
 	if (keycode == 53)
 		_close(f);
 	else if (keycode == 123)
@@ -33,9 +30,9 @@ static int	_event(int keycode, t_my_fractol *f)
 	else if (keycode == 124)
 		f->move_x += 0.1 * f->zoom;
 	else if (keycode == 125)
-		f->move_y += 0.1 * f->zoom;
-	else if (keycode == 126)
 		f->move_y -= 0.1 * f->zoom;
+	else if (keycode == 126)
+		f->move_y += 0.1 * f->zoom;
 	// else if (keycode == 49)
 	// {
 		 /* pass function change the color of my fractal ! */
@@ -56,6 +53,7 @@ static int _zoom(int button, int x, int y, t_my_fractol *f)
 		zoom = 0.95;
 	else
 		return (0);
+	f->zoom *= zoom;
 	mouse_real = map_pixel_to_coordinate(x, f->x_start, f->x_end, WIDTH);
 	mouse_img = map_pixel_to_coordinate(y, f->y_start, f->y_end, HEIGHT);
 	f->x_start = mouse_real + (f->x_start - mouse_real) * zoom;
