@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:10:31 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/28 18:46:32 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/29 08:29:28 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	create_fractol(t_my_fractol *f, char *str)
 		create_fract_julia(f);
 	// else
 	// 	create_fract_tricorn(f);
-	managing_events(f);
+	// managing_events(f);
 }
 
 void	preparing_fractol(t_my_fractol *fr)
@@ -76,7 +76,7 @@ void	preparing_fractol(t_my_fractol *fr)
 		deal_with_error("Problem creating the image!\n", fr);
 	fr->img.pixel_data = mlx_get_data_addr(fr->img.img_ptr, \
 	&fr->img.bits_per_pixel, &fr->img.line_length, &fr->img.endian);
-	if (fr->img.pixel_data == NULL)
+	if (fr->img.pixel_data == NULL) // not  important  to handle it !
 		deal_with_error("Problem accessing image data!\n", fr);
 	set_plan(fr);
 }
@@ -91,6 +91,7 @@ int	main(int ac, char *av[])
 		fractol.name = av[1];
 		preparing_fractol(&fractol);
 		create_fractol(&fractol, fractol.name);
+		managing_events(&fractol);
 		mlx_loop(fractol.mlx_ptr);
 	}
 	else if (ac == 4 && !ft_strcmp(av[1], "julia")
@@ -101,6 +102,7 @@ int	main(int ac, char *av[])
 		fractol.c_julia.img = ft_atod(av[3]);
 		preparing_fractol(&fractol);
 		create_fractol(&fractol, fractol.name);
+		managing_events(&fractol);
 		mlx_loop(fractol.mlx_ptr);
 	}
 	else

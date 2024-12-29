@@ -6,7 +6,7 @@
 #    By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/28 15:44:35 by ael-gady          #+#    #+#              #
-#    Updated: 2024/12/28 15:59:46 by ael-gady         ###   ########.fr        #
+#    Updated: 2024/12/29 09:44:05 by ael-gady         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,8 @@ SRC = main_bonus.c event_bonus.c handle_std_bonus_utils.c julia_set_bonus.c \
 OBJ_SRC = $(SRC:.c=.o)
 
 CC = cc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -O3
 FRM = -lmlx -framework OpenGL -framework AppKit
-
 %.o : %.c fractol_bonus.h
 	$(CC) $(FLAGS) -c $< -o $@
 
