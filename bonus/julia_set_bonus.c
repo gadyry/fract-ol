@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:41:45 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/28 17:56:31 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/30 09:36:36 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ void	handle_data_pixel_julia(t_my_fractol *f, int x, int y)
 {
 	t_complex_nbr	z;
 
-	z.real = map_pixel_to_coordinate(x, f->x_start, f->x_end, WIDTH);
-	z.img = map_pixel_to_coordinate(y, f->y_start, f->y_end, HEIGHT);
+	z.real = map_pixel_to_coordinate(x, f->x_start, f->x_end, WIDTH) \
+			+ f->move_x;
+	z.img = map_pixel_to_coordinate(y, f->y_start, f->y_end, HEIGHT) \
+			+ f->move_y;
 	f->nbr_iter = 0;
 	while (f->nbr_iter < MAX_ITER)
 	{
-		z = sum_complex(pow2_complex(z), f->c_julia);
+		z = sum_complex(pow2_complex(z, f), f->c_julia);
 		if ((z.real * z.real) + (z.img * z.img) > 4)
 		{
 			put_color(f, x, y, f->nbr_iter);
@@ -34,8 +36,8 @@ void	handle_data_pixel_julia(t_my_fractol *f, int x, int y)
 
 void	create_fract_julia(t_my_fractol *f)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (y < WIDTH)

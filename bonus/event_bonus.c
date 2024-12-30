@@ -6,19 +6,29 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:47:29 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/29 09:57:51 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/29 16:08:35 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
-static int _close(t_my_fractol *f)
+static int	_close(t_my_fractol *f)
 {
 	mlx_destroy_image(f->mlx_ptr, f->img.img_ptr);
 	mlx_destroy_window(f->mlx_ptr, f->mlx_win);
 	free(f->mlx_ptr);
 	exit(0);
 	return (0);
+}
+
+static	void	ft_change_color(t_my_fractol *f)
+{
+	int	tmp;
+
+	tmp = (int)(f->col1 + f->col3) % 11;
+	f->col1 = (int)(f->col1 + f->col2) % 11;
+	f->col2 = (int)(f->col2 + f->col3) % 11;
+	f->col3 = tmp;
 }
 
 static int	_event(int keycode, t_my_fractol *f)
@@ -33,15 +43,13 @@ static int	_event(int keycode, t_my_fractol *f)
 		f->move_y -= 0.1 * f->zoom;
 	else if (keycode == 126)
 		f->move_y += 0.1 * f->zoom;
-	// else if (keycode == 49)
-	// {
-		 /* pass function change the color of my fractal ! */
-	// }
+	else if (keycode == 49)
+		ft_change_color(f);
 	create_fractol(f, f->name);
 	return (0);
 }
 
-static int _zoom(int button, int x, int y, t_my_fractol *f)
+static int	_zoom(int button, int x, int y, t_my_fractol *f)
 {
 	double	mouse_real;
 	double	mouse_img;

@@ -6,22 +6,22 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:25:33 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/27 20:27:34 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/30 09:34:30 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
-void deal_with_error(char *msg, t_my_fractol *f)
+void	deal_with_error(char *msg, t_my_fractol *f)
 {
 	if (f->img.img_ptr)
 		mlx_destroy_image(f->mlx_ptr, f->img.img_ptr);
 	if (f->mlx_win)
 		mlx_destroy_window(f->mlx_ptr, f->mlx_win);
-    if(f->mlx_ptr)
+	if (f->mlx_ptr)
 		free(f->mlx_ptr);
-    ft_put_error(msg, 2);
-    exit(1);
+	ft_put_error(msg, 2);
+	exit(1);
 }
 
 int	ft_strcmp(const char *s1, const char *s2)

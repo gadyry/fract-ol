@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:11:09 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/28 21:41:45 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/30 09:33:35 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ typedef struct s_data_img
 	int		color;
 }				t_data_img;
 
-
 typedef struct s_my_fractol
 {
 	char			*name;
@@ -64,6 +63,9 @@ typedef struct s_my_fractol
 	double			move_y;
 	double			mouse_x;
 	double			mouse_y;
+	double			col1;
+	double			col2;
+	double			col3;
 }				t_my_fractol;
 
 /*  ****----functions----****    */
@@ -71,7 +73,7 @@ int				ft_strcmp(const char *s1, const char *s2);
 void			ft_putchar_fd(int c, int fd);
 void			ft_put_error(char *str, int fd);
 t_complex_nbr	calculate_poly_function(t_complex_nbr z);
-void    		preparing_fractol(t_my_fractol *fractol);
+void			preparing_fractol(t_my_fractol *fractol);
 void			create_fractol(t_my_fractol *fractol, char *str);
 void			create_fract_mandelbrot(t_my_fractol *f);
 void			create_fract_julia(t_my_fractol *f);
@@ -79,14 +81,16 @@ void			create_fract_tricorn(t_my_fractol *f);
 void			deal_with_error(char *msg, t_my_fractol *f);
 void			handle_data_pixel_mand(t_my_fractol *f, int x, int y);
 void			handle_data_pixel_julia(t_my_fractol *f, int x, int y);
-double			map_pixel_to_coordinate(int value, double nmin, double nmax, double omax);
+double			map_pixel_to_coordinate(int value, double nmin, \
+				double nmax, double omax);
 t_complex_nbr	sum_complex(t_complex_nbr z, t_complex_nbr c);
-t_complex_nbr	pow2_complex(t_complex_nbr z);
+t_complex_nbr	pow2_complex(t_complex_nbr z, t_my_fractol *f);
 void			handle_data_pixel(t_my_fractol *f, int x, int y);
 void			put_color(t_my_fractol *f, int x, int y, int nbr_iter);
 void			put_postition_pixel(t_my_fractol *f, int x, int y, int color);
 void			set_plan(t_my_fractol *fract);
 void			managing_events(t_my_fractol *f);
 double			ft_atod(char *arg);
-
+void			create_fract_tricorn(t_my_fractol *f);
+void			handle_data_pixel_tricorn(t_my_fractol *f, int x, int y);
 #endif

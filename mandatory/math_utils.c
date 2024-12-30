@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:27:21 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/27 19:07:17 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/30 09:27:48 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,37 +21,32 @@ void	set_plan(t_my_fractol *fract)
 	fract->y_end = -2.0;
 }
 
-double	map_pixel_to_coordinate(double value, double nmin, double nmax, double omax)
+double	map_pixel_to_coordinate(double value, double nmin, \
+		double nmax, double omax)
 {
-	return ((value / omax ) * (nmax - nmin) + nmin);
+	return ((value / omax) * (nmax - nmin) + nmin);
 }
 
 t_complex_nbr	sum_complex(t_complex_nbr z, t_complex_nbr c)
 {
 	t_complex_nbr	res;
+
 	res.real = z.real + c.real;
 	res.img = z.img + c.img;
 	return (res);
 }
 
-t_complex_nbr  pow2_complex(t_complex_nbr z)
+t_complex_nbr	pow2_complex(t_complex_nbr z)
 {
-	double tmp;
+	double	tmp;
 
 	tmp = (z.real * z.real) - (z.img * z.img);
 	z.img = 2 * z.real * z.img;
 	z.real = tmp;
 	return (z);
 }
-void	setup_zoom(t_my_fractol *f)
-{
-	f->x_start *= f->zoom;
-	f->x_end *= f->zoom;
-	f->y_start *= f->zoom;
-	f->y_end *= f->zoom;
-}
 
-double  ft_atod(char *arg)
+double	ft_atod(char *arg)
 {
 	int		i;
 	int		sign;

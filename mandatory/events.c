@@ -6,13 +6,13 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 18:43:55 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/27 18:48:02 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/30 09:19:34 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static int _close(t_my_fractol *f)
+static int	_close(t_my_fractol *f)
 {
 	mlx_destroy_image(f->mlx_ptr, f->img.img_ptr);
 	mlx_destroy_window(f->mlx_ptr, f->mlx_win);
@@ -28,7 +28,7 @@ static int	_event(int keycode, t_my_fractol *f)
 	return (0);
 }
 
-static int _zoom(int button, int x, int y, t_my_fractol *f)
+static int	_zoom(int button, int x, int y, t_my_fractol *f)
 {
 	(void)x;
 	(void)y;
@@ -36,6 +36,8 @@ static int _zoom(int button, int x, int y, t_my_fractol *f)
 		f->zoom = 1.05;
 	else if (button == 5)
 		f->zoom = 0.95;
+	else
+		return (0);
 	create_fractol(f, f->name);
 	return (0);
 }

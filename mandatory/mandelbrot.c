@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 23:05:33 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/27 19:14:59 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/30 09:23:43 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	handle_data_pixel_mand(t_my_fractol *f, int x, int y)
 	z.real = 0.0;
 	z.img = 0.0;
 	f->nbr_iter = 0;
-	c.real = map_pixel_to_coordinate(x, -2, +2, WIDTH);
-	c.img = map_pixel_to_coordinate(y, +2, -2, HEIGHT);
+	c.real = map_pixel_to_coordinate(x, f->x_start, f->x_end, WIDTH);
+	c.img = map_pixel_to_coordinate(y, f->y_start, f->y_end, HEIGHT);
 	while (f->nbr_iter < MAX_ITER)
 	{
 		z = sum_complex(pow2_complex(z), c);
@@ -37,8 +37,8 @@ void	handle_data_pixel_mand(t_my_fractol *f, int x, int y)
 
 void	create_fract_mandelbrot(t_my_fractol *f)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	setup_zoom(f);

@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:39:16 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/29 09:56:57 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/30 09:38:08 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,13 @@ void	handle_data_pixel_mand(t_my_fractol *f, int x, int y)
 	z.real = 0.0;
 	z.img = 0.0;
 	f->nbr_iter = 0;
-	c.real = map_pixel_to_coordinate(x, f->x_start, f->x_end, WIDTH) + f->move_x;
-	c.img = map_pixel_to_coordinate(y, f->y_start, f->y_end, HEIGHT) + f->move_y;
+	c.real = map_pixel_to_coordinate(x, f->x_start, f->x_end, WIDTH) \
+			+ f->move_x;
+	c.img = map_pixel_to_coordinate(y, f->y_start, f->y_end, HEIGHT) \
+			+ f->move_y;
 	while (f->nbr_iter < MAX_ITER)
 	{
-		z = sum_complex(pow2_complex(z), c);
+		z = sum_complex(pow2_complex(z, f), c);
 		if ((z.real * z.real) + (z.img * z.img) > 4)
 		{
 			put_color(f, x, y, f->nbr_iter);
@@ -37,8 +39,8 @@ void	handle_data_pixel_mand(t_my_fractol *f, int x, int y)
 
 void	create_fract_mandelbrot(t_my_fractol *f)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (y < WIDTH)

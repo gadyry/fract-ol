@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:44:55 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/29 08:32:30 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/30 09:41:19 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,32 +19,46 @@ void	set_plan(t_my_fractol *fract)
 	fract->x_end = +2.0;
 	fract->y_start = +2.0;
 	fract->y_end = -2.0;
+	fract->col1 = 5;
+	fract->col2 = 3;
+	fract->col3 = 11;
 }
 
-double	map_pixel_to_coordinate(int value, double nmin, double nmax, double omax)
+double	map_pixel_to_coordinate(int value, double nmin, \
+		double nmax, double omax)
 {
-	return (((double)value / omax ) * (nmax - nmin) + nmin);
+	return (((double)value / omax) * (nmax - nmin) + nmin);
 }
 
 t_complex_nbr	sum_complex(t_complex_nbr z, t_complex_nbr c)
 {
 	t_complex_nbr	res;
+
 	res.real = z.real + c.real;
 	res.img = z.img + c.img;
 	return (res);
 }
 
-t_complex_nbr  pow2_complex(t_complex_nbr z)
+t_complex_nbr	pow2_complex(t_complex_nbr z, t_my_fractol *f)
 {
-	double tmp;
+	double	tmp;
 
-	tmp = (z.real * z.real) - (z.img * z.img);
-	z.img = 2 * z.real * z.img;
-	z.real = tmp;
+	if (!ft_strcmp(f->name, "tricorn"))
+	{
+		tmp = (z.real * z.real) - (z.img * z.img);
+		z.img = -2 * z.real * z.img;
+		z.real = tmp;
+	}
+	else
+	{
+		tmp = (z.real * z.real) - (z.img * z.img);
+		z.img = 2 * z.real * z.img;
+		z.real = tmp;
+	}
 	return (z);
 }
 
-double  ft_atod(char *arg)
+double	ft_atod(char *arg)
 {
 	int		i;
 	int		sign;

@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:20:03 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/27 18:45:45 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/30 09:31:16 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ typedef struct s_data_img
 	int		color;
 }				t_data_img;
 
-
 typedef struct s_my_fractol
 {
 	char			*name;
@@ -62,20 +61,20 @@ typedef struct s_my_fractol
 	double			y_end;
 }				t_my_fractol;
 
-
 /*  ****----functions----****    */
 int				ft_strcmp(const char *s1, const char *s2);
 void			ft_putchar_fd(int c, int fd);
 void			ft_put_error(char *str, int fd);
 t_complex_nbr	calculate_poly_function(t_complex_nbr z);
-void    		preparing_fractol(t_my_fractol *fractol);
+void			preparing_fractol(t_my_fractol *fractol);
 void			create_fractol(t_my_fractol *fractol, char *str);
 void			create_fract_mandelbrot(t_my_fractol *f);
 void			create_fract_julia(t_my_fractol *f);
 void			deal_with_error(char *msg, t_my_fractol *f);
 void			handle_data_pixel_mand(t_my_fractol *f, int x, int y);
 void			handle_data_pixel_julia(t_my_fractol *f, int x, int y);
-double			map_pixel_to_coordinate(double value, double nmin, double nmax, double omax);
+double			map_pixel_to_coordinate(double value, double nmin, \
+				double nmax, double omax);
 t_complex_nbr	sum_complex(t_complex_nbr z, t_complex_nbr c);
 t_complex_nbr	pow2_complex(t_complex_nbr z);
 void			handle_data_pixel(t_my_fractol *f, int x, int y);
