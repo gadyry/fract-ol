@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:20:03 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/30 09:31:16 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/30 10:36:48 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 # define FRACTOL_H
 
 # include <mlx.h>
-# include <math.h> // for mathematic functions
 # include <unistd.h> // write 
 # include <stdlib.h> // malloc & free 
-# include <libc.h> // for debuggin 
 
 # define ERROR_0 " Invalid input, try again ! \n"
 # define ERROR_1 " ./fractol mandebrot\n"

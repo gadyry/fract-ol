@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:11:09 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/30 09:33:35 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/30 11:15:07 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 # define FRACTOL_BONUS_H
 
 # include <mlx.h>
-# include <math.h> // for mathematic functions
 # include <unistd.h> // write 
 # include <stdlib.h> // malloc & free 
-# include <libc.h> // for debuggin 
 
 # define ERROR_0 " Invalid input, try again ! \n"
 # define ERROR_1 " ./fractol mandebrot\n"
@@ -66,6 +64,7 @@ typedef struct s_my_fractol
 	double			col1;
 	double			col2;
 	double			col3;
+	double			max_iter;
 }				t_my_fractol;
 
 /*  ****----functions----****    */

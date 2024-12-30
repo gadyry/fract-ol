@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:40:31 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/29 17:14:58 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/30 10:41:51 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	put_color(t_my_fractol *f, int x, int y, int nbr_iter)
 	{
 		colors[0] = (int)(nbr_iter * f->col1) % 256;
 		colors[1] = (int)(nbr_iter * f->col2) % 256;
-		colors[2] = (int)(nbr_iter * f->col2) % 256;
+		colors[2] = (int)(nbr_iter * f->col3) % 256;
 		f->img.color = (colors[0] << 16) | (colors[1] << 8) | (colors[2]);
 	}
 	put_postition_pixel(f, x, y, f->img.color);

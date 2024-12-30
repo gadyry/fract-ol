@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:10:31 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/30 09:37:09 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/30 10:01:24 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	init_var(int *pt, int *s, int *n_d, int *d)
 	*d = 0;
 }
 
-int	ft_check_arg(char *arg)// check ".5" - "++5"
+int	ft_check_arg(char *arg)
 {
 	int	i;
 	int	pt;

@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:44:55 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/30 09:41:19 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/30 11:17:36 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	set_plan(t_my_fractol *fract)
 	fract->col1 = 5;
 	fract->col2 = 3;
 	fract->col3 = 11;
+	fract->max_iter = 100;
 }
 
 double	map_pixel_to_coordinate(int value, double nmin, \

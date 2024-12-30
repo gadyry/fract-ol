@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:41:45 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/30 09:36:36 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/30 11:16:35 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	handle_data_pixel_julia(t_my_fractol *f, int x, int y)
 	z.img = map_pixel_to_coordinate(y, f->y_start, f->y_end, HEIGHT) \
 			+ f->move_y;
 	f->nbr_iter = 0;
-	while (f->nbr_iter < MAX_ITER)
+	while (f->nbr_iter < f->max_iter)
 	{
 		z = sum_complex(pow2_complex(z, f), f->c_julia);
 		if ((z.real * z.real) + (z.img * z.img) > 4)

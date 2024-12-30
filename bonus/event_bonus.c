@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:47:29 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/29 16:08:35 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/30 11:18:02 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ static int	_event(int keycode, t_my_fractol *f)
 		f->move_y += 0.1 * f->zoom;
 	else if (keycode == 49)
 		ft_change_color(f);
+	else if (keycode == 27)
+	{
+		if (f->nbr_iter > 20)
+			f->max_iter -= 10;
+	}
+	else if (keycode == 24)
+		f->max_iter += 10;
 	create_fractol(f, f->name);
 	return (0);
 }
