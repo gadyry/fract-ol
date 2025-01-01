@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:10:31 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/30 10:01:24 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/31 15:19:59 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void	create_fractol(t_my_fractol *f, char *str)
 		create_fract_mandelbrot(f);
 	else if (!ft_strcmp(str, "julia"))
 		create_fract_julia(f);
+	else if (!ft_strcmp(str, "canopy"))
+		create_fract_canopy(f);
 	else
 		create_fract_tricorn(f);
 }
@@ -97,6 +99,14 @@ int	main(int ac, char *av[])
 		fractol.name = "julia";
 		fractol.c_julia.real = ft_atod(av[2]);
 		fractol.c_julia.img = ft_atod(av[3]);
+		preparing_fractol(&fractol);
+		create_fractol(&fractol, fractol.name);
+		managing_events(&fractol);
+		mlx_loop(fractol.mlx_ptr);
+	}
+	else if (ac == 2 && (!ft_strcmp(av[1], "canopy")))
+	{
+		fractol.name = av[1];
 		preparing_fractol(&fractol);
 		create_fractol(&fractol, fractol.name);
 		managing_events(&fractol);

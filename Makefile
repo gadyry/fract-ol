@@ -6,7 +6,7 @@
 #    By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/29 17:40:57 by ael-gady          #+#    #+#              #
-#    Updated: 2024/12/30 07:50:22 by ael-gady         ###   ########.fr        #
+#    Updated: 2024/12/31 09:49:08 by ael-gady         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ CFILES =  $(MPATH)main.c 	$(MPATH)events.c 	$(MPATH)handle_std_utils.c 	$(MPATH)
  			$(MPATH)mandelbrot.c 	$(MPATH)math_utils.c $(MPATH)warmest_color.c
 
 BFILES = $(BPATH)main_bonus.c $(BPATH)event_bonus.c $(BPATH)handle_std_bonus_utils.c $(BPATH)julia_set_bonus.c \
-		$(BPATH)mandelbrot_bonus.c $(BPATH)math_bonus_utils.c $(BPATH)warmest_color_bonus.c  $(BPATH)tricorn_bonus.c
+		$(BPATH)mandelbrot_bonus.c $(BPATH)math_bonus_utils.c $(BPATH)warmest_color_bonus.c  $(BPATH)tricorn_bonus.c \
+		$(BPATH)canopy.c
 OFILES = $(CFILES:.c=.o)
 
 BOFILES = $(BFILES:.c=.o)

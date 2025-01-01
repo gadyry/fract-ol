@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 18:43:55 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/30 09:19:34 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/30 18:44:43 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static int	_close(t_my_fractol *f)
 {
 	mlx_destroy_image(f->mlx_ptr, f->img.img_ptr);
 	mlx_destroy_window(f->mlx_ptr, f->mlx_win);
-	free(f->mlx_ptr);
 	exit(0);
 	return (0);
 }

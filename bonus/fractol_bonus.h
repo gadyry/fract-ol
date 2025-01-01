@@ -6,7 +6,7 @@
 /*   By: ael-gady <ael-gady@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:11:09 by ael-gady          #+#    #+#             */
-/*   Updated: 2024/12/30 11:15:07 by ael-gady         ###   ########.fr       */
+/*   Updated: 2024/12/31 15:22:01 by ael-gady         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 # include <mlx.h>
 # include <unistd.h> // write 
-# include <stdlib.h> // malloc & free 
+# include <stdlib.h>
+# include <math.h> // malloc & free 
+# include <libc.h>
 
 # define ERROR_0 " Invalid input, try again ! \n"
 # define ERROR_1 " ./fractol mandebrot\n"
@@ -92,4 +94,6 @@ void			managing_events(t_my_fractol *f);
 double			ft_atod(char *arg);
 void			create_fract_tricorn(t_my_fractol *f);
 void			handle_data_pixel_tricorn(t_my_fractol *f, int x, int y);
+void			create_fract_canopy(t_my_fractol *f);
+
 #endif
